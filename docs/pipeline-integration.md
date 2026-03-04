@@ -192,13 +192,13 @@ For large pipelines, create tasks programmatically:
 from airflow.operators.python import PythonOperator
 from egon_validation import run_validations, RunContext
 
-def create_validation_tasks(validation_dict, dataset_name, on_failure="continue"):
+def create_validation_tasks(validation_dict, dataset_name, proceed_on_validation_failure=False):
     """Convert validation rules to Airflow tasks.
 
     Args:
         validation_dict: {"task_name": [Rule1(), Rule2()]}
         dataset_name: Name for task_id prefix
-        on_failure: "continue" or "fail"
+        proceed_on_validation_failure: True or False
 
     Returns:
         List of PythonOperator tasks
@@ -217,7 +217,7 @@ def create_validation_tasks(validation_dict, dataset_name, on_failure="continue"
                 results = run_validations(engine, ctx, rules, task_name)
 
                 failed = sum(1 for r in results if not r.success)
-                if failed > 0 and on_failure == "fail":
+                if failed > 0 and not proceed_on_validation_failure:
                     raise Exception(f"{failed} validations failed")
 
                 return {"total": len(results), "failed": failed}
