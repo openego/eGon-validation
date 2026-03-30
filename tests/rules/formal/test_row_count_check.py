@@ -1,5 +1,5 @@
 from egon_validation.rules.formal.row_count_check import RowCountValidation
-from egon_validation.rules.custom.row_count_comparison import (
+from egon_validation.rules.custom.row_count_comparison_check import (
     RowCountComparisonValidation,
 )
 from egon_validation.rules.base import Severity
