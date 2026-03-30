@@ -4,6 +4,7 @@ from egon_validation.rules.registry import register
 # Germany's official area in km²
 GERMANY_TOTAL_AREA_KM2 = 357386.0
 
+
 @register(
     task="germanyAreaComparison",
     table="boundaries.vg250_krs",
@@ -48,7 +49,9 @@ class GermanyAreaAggregationValidation(SqlRule):
         min_area_km2 = float(row.get("min_area_km2") or 0.0)
         max_area_km2 = float(row.get("max_area_km2") or 0.0)
 
-        expected_area_km2 = float(self.params.get("expected_area_km2", GERMANY_TOTAL_AREA_KM2))
+        expected_area_km2 = float(
+            self.params.get("expected_area_km2", GERMANY_TOTAL_AREA_KM2)
+        )
         tolerance = float(self.params.get("tolerance", 0.01))
 
         # Calculate relative difference
