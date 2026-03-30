@@ -6,7 +6,7 @@ import inspect
 import pkgutil
 from pathlib import Path
 
-__version__ = "1.2.1"
+__version__ = "1.3.0"
 
 # Core components (exported as public API)
 from egon_validation.context import RunContext, RunContextFactory  # noqa: F401

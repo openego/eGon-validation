@@ -37,7 +37,7 @@ def _run_task(args):
     db_url = args.db_url or get_env(ENV_DB_URL) or build_db_url()
     if not db_url:
         raise SystemExit(
-            "Missing DB URL (use --db-url, set EGON_DB_URL, or configure .env file)"
+            "Missing DB URL (use --db-url, set DB_URL, or configure .env file)"
         )
 
     ctx = RunContext(run_id=args.run_id, out_dir=args.out)
@@ -89,7 +89,7 @@ def main():
     p1.add_argument(
         "--db-url",
         type=str,
-        help="PostgreSQL URL (or set EGON_DB_URL or configure .env)",
+        help="PostgreSQL URL (or set DB_URL or configure .env)",
     )
     p1.add_argument("--run-id", required=True, type=str)
     p1.add_argument("--task", required=True, type=str)
