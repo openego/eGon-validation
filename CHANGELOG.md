@@ -202,8 +202,8 @@ All notable changes to this project will be documented in this file.
 - Add sanity rules
 - Initial project skeleton
 
-[1.3.0]: https://github.com/yourusername/egon-validation/releases/tag/v1.3.0
-[1.2.3]: https://github.com/yourusername/egon-validation/releases/tag/v1.2.3
-[1.2.2]: https://github.com/yourusername/egon-validation/releases/tag/v1.2.2
-[1.1.1]: https://github.com/yourusername/egon-validation/releases/tag/v1.1.1
-[1.0.0]: https://github.com/yourusername/egon-validation/releases/tag/v1.0.0
+[1.3.0]: https://github.com/sagemaso/egon-validation/releases/tag/v1.3.0
+[1.2.3]: https://github.com/sagemaso/egon-validation/releases/tag/v1.2.3
+[1.2.2]: https://github.com/sagemaso/egon-validation/releases/tag/v1.2.2
+[1.1.1]: https://github.com/sagemaso/egon-validation/releases/tag/v1.1.1
+[1.0.0]: https://github.com/sagemaso/egon-validation/releases/tag/v1.0.0

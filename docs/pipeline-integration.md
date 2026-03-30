@@ -236,7 +236,7 @@ Usage:
 ```python
 validation_dict = {
     "data_quality": [RowCountValidation(...), NotNullAndNotNaNValidation(...)],
-    "geometry": [SRIDValidation(...), GeometryValidation(...)],
+    "geometry": [SRIDSpecificValidation(...), GeometryContainmentValidation(...)],
 }
 
 tasks = create_validation_tasks(validation_dict, "my_dataset")

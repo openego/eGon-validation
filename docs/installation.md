@@ -22,7 +22,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=egon-data
 DB_USER=postgres
-DB_PASS=secret
+DB_PASSWORD=secret
 ```
 
 ## SSH Tunnel (optional)
@@ -31,8 +31,11 @@ For remote databases behind a firewall:
 
 ```bash
 SSH_HOST=gateway.example.com
+SSH_PORT=22                    # SSH port (default: 22)
 SSH_USER=username
 SSH_KEY_FILE=~/.ssh/id_rsa
+SSH_LOCAL_PORT=59763           # Local port to forward
+SSH_REMOTE_PORT=59763          # Remote database port
 ```
 
 Use with `--with-tunnel` flag.
@@ -40,7 +43,10 @@ Use with `--with-tunnel` flag.
 ## Execution Settings
 
 ```bash
-MAX_WORKERS=6              # Parallel rule execution threads
-OUTPUT_DIR=./validation_runs
-DEFAULT_TOLERANCE=0.0      # Acceptable deviation for numeric checks
+EGON_OUT_DIR=./validation_runs    # Output directory for validation results
+EGON_LOG_LEVEL=INFO               # Log level (DEBUG, INFO, WARNING, ERROR)
+EGON_LOG_DIR=logs                 # Directory for log files
+EGON_ENVIRONMENT=development      # Set to "production" for JSON logging
 ```
+
+Note: `max_workers` for parallel execution is configured via code (default: 6).
