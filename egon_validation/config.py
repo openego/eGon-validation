@@ -45,7 +45,7 @@ load_env_file()
 DEFAULT_OUT_DIR = "./validation_runs"
 """str: Default directory for storing validation results and reports."""
 
-ENV_DB_URL = "EGON_DB_URL"
+ENV_DB_URL = "DB_URL"
 """str: Environment variable name for complete database URL override."""
 
 # ElectricalLoadAggregationValidation

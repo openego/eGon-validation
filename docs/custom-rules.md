@@ -12,11 +12,10 @@ from egon_validation.rules.registry import register
     task="my_task",
     table="schema.my_table",
     rule_id="POSITIVE_VALUES",
-    kind="custom",
     column="amount"
 )
 class PositiveValuesCheck(SqlRule):
-    def sql(self, ctx):
+    def get_query(self, ctx):
         col = self.params["column"]
         return f"""
             SELECT
@@ -39,15 +38,15 @@ For complex Python-based validation:
 
 ```python
 from egon_validation.rules.base import DataFrameRule
+from egon_validation.rules.registry import register
 
 @register(
     task="my_task",
     table="schema.my_table",
-    rule_id="COMPLEX_CHECK",
-    kind="custom"
+    rule_id="COMPLEX_CHECK"
 )
 class ComplexCheck(DataFrameRule):
-    def sql(self, ctx):
+    def get_query(self, ctx):
         return f"SELECT * FROM {self.table}"
 
     def evaluate_df(self, df, ctx):

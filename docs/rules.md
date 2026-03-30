@@ -21,7 +21,7 @@
 
 | Rule | Purpose | Key Parameters |
 |------|---------|----------------|
-| `GeometryContainmentValidation` | Geometry validity & containment | `geom`, `ref_table`, `ref_geom` |
+| `GeometryContainmentValidation` | Geometry validity & containment | `geom`, `ref_table`, `ref_geom`, `ref_filter`, `filter_condition` |
 | `SRIDUniqueNonZero` | SRID is unique and non-zero | `geom` |
 | `SRIDSpecificValidation` | SRID matches expected value | `geom`, `expected_srid` |
 
@@ -34,7 +34,6 @@ Rules are registered with the `@register` decorator:
     task="data_quality",
     table="schema.table_name",
     rule_id="MY_RULE",
-    kind="formal",
     # rule-specific params...
 )
 class MyRule(SqlRule):

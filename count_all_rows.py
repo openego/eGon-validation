@@ -38,7 +38,7 @@ def main():
 
     if not db_url:
         print("❌ No database URL configured!")
-        print("Set EGON_DB_URL environment variable or configure .env file with DB_* variables")
+        print("Set DB_URL environment variable or configure .env file with DB_* variables")
         sys.exit(1)
 
     try:
