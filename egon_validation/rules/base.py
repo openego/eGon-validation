@@ -282,6 +282,24 @@ class Rule:
         """Return SQL query for validation. Must be overridden by subclasses."""
         raise NotImplementedError
 
+    def get_params(self, ctx) -> Optional[Dict[str, Any]]:
+        """Return query parameters for parameterized queries.
+
+        Override this method to provide parameters for SQL queries using
+        :param_name placeholders. This prevents SQL injection vulnerabilities.
+
+        Example:
+            def get_query(self, ctx):
+                return "SELECT * FROM table WHERE scenario = :scenario"
+
+            def get_params(self, ctx):
+                return {"scenario": self.scenario}
+
+        Returns:
+            Dict of parameter names to values, or None for no parameters.
+        """
+        return None
+
     def _check_table_empty(self, engine, ctx) -> Optional[RuleResult]:
         """Check if the table is empty and return failure result if so.
 
@@ -355,7 +373,8 @@ class DataFrameRule(Rule):
 
             # Get DataFrame
             query = self.get_query(ctx)
-            df = fetch_dataframe(engine, query)
+            params = self.get_params(ctx)
+            df = fetch_dataframe(engine, query, params=params)
 
             # Check if query returned no results (e.g., due to WHERE filters)
             if df.empty:
