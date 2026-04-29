@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2] - 2026-04-29
+
+### Added
+- New custom rule: `germany_area_check`
+
+### Changed
+- Renamed environment variable `EGON_DB_URL` → `DB_URL`
+- Renamed `row_count_comparison_check.py` for consistent naming
+
+### Fixed
+- Refactored SQL processing to use parameterized queries, preventing SQL injection
+- Bug fix in `row_count` test
+
+### Maintenance
+- Documentation updates
+- Applied black formatting
+
 ## [1.3.1] - 2026-02-12
 
 ### Added
@@ -205,6 +222,8 @@ All notable changes to this project will be documented in this file.
 - Add sanity rules
 - Initial project skeleton
 
+[1.3.2]: https://github.com/sagemaso/egon-validation/releases/tag/v1.3.2
+[1.3.1]: https://github.com/sagemaso/egon-validation/releases/tag/v1.3.1
 [1.3.0]: https://github.com/sagemaso/egon-validation/releases/tag/v1.3.0
 [1.2.3]: https://github.com/sagemaso/egon-validation/releases/tag/v1.2.3
 [1.2.2]: https://github.com/sagemaso/egon-validation/releases/tag/v1.2.2
